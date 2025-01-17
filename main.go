@@ -1,10 +1,17 @@
-package main 
+package main
 
-import "fmt"
-import "log"
-import "github.com/gofiber/fiber/v2"
+import (
+    "log"
 
-func main()  {
-	app := fiber.New()	
-	log.Fatal(app.Listen(":3000"))
+    "github.com/gofiber/fiber/v2"
+)
+
+func main() {
+    app := fiber.New()
+
+    app.Get("/", func(c *fiber.Ctx) error {
+        return c.Status(200).JSON(fiber.Map{"message": "Hello, World!"})
+    })
+
+    log.Fatal(app.Listen(":3000"))
 }
