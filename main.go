@@ -17,8 +17,8 @@ func main() {
 	app := fiber.New()
 	todos := []Todo{}
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.Status(200).JSON(fiber.Map{"message": "Hello, World!"})
+	app.Get("/api/todos", func(c *fiber.Ctx) error {
+		return c.Status(200).JSON(todos)
 	})
 
 	app.Post("/api/todos", func(c *fiber.Ctx) error {
