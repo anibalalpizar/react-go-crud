@@ -24,9 +24,7 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
         console.error(error)
       }
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["todos"] })
-    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["todos"] }),
   })
 
   return (
